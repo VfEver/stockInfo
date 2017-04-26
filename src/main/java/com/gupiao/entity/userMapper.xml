@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gupiao.dao.UserDao">
+	<resultMap type="user" id="userMap">
+		<id property="userID" column="user_id"/>
+		<result property="username" column="user_name"/>
+		<result property="password" column="password"/>
+	</resultMap>
+	
+	<!-- 保存用户 -->
+	<insert id="saveUser" parameterType="user">
+		insert into user(user_name, password)
+		values(#{username}, #{password});
+	</insert>
+	
+	<!-- 根据用户名和密码查询用户 -->
+	<select id="findUser" parameterType="map" resultMap="userMap">
+		select *
+		from user 
+		where user_name = #{username} and password = #{password};
+	</select>
+	
+	<!-- 加入自选股 -->
+	<insert id="saveUserSelfStock" parameterType="map">
+		insert into user_self_stock(user_id, stock_code)
+		values(#{userID}, #{stockCode});		
+	</insert>
+	
+	<!-- 增加股票关注数 -->
+	<update id="updateStockCount" parameterType="string">
+		update stock_count
+		set stock_num = stock_num + 1
+		where stock_code = #{stockCode};
+	</update>
+	
+	<!-- 查询用户的所有自选股 -->
+	<select id="findUserSelfStock" parameterType="string" resultType="string">
+		select stock_code
+		from user_self_stock
+		where user_id = #{userID};
+	</select>
+	
+	<!-- 查询是否为自选股 -->
+	<select id="isSelfStock" parameterType="map" resultType="java.util.HashMap">
+		select user_id as userID,
+				stock_code as stockCode
+		from user_self_stock
+		where user_id = #{userID} and stock_code like #{stockCode};
+	</select>
+	
+	<!-- 查询是否存在注册过的用户名 -->
+	<select id="findUserByUsername" parameterType="string" resultMap="userMap">
+		select * 
+		from user
+		where user_name = #{username};
+	</select>
+</mapper>

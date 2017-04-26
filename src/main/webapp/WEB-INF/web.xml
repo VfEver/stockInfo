@@ -1,0 +1,129 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>gupiao</display-name>
+  
+  <filter>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<filter-class>com.gupiao.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encode</param-name>
+  		<param-value>utf8</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockListServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockInfoServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockDetailServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockHandicapServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockHandicapServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserSelftStockServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.UserSelftStockServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockSessiontServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockSessiontServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddSelfStockServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.AddSelfStockServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StockSearchServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.StockSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IsSelfStockServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.IsSelfStockServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UsernameServlet</servlet-name>
+    <servlet-class>com.gupiao.servlet.UsernameServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockListServlet</servlet-name>
+    <url-pattern>/stockListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockInfoServlet</servlet-name>
+    <url-pattern>/stockInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockDetailServlet</servlet-name>
+    <url-pattern>/stockDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockHandicapServlet</servlet-name>
+    <url-pattern>/stockHandicapServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/registerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserSelftStockServlet</servlet-name>
+    <url-pattern>/userSelftStockServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockSessiontServlet</servlet-name>
+    <url-pattern>/stockSessiontServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddSelfStockServlet</servlet-name>
+    <url-pattern>/addSelfStockServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StockSearchServlet</servlet-name>
+    <url-pattern>/stockSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IsSelfStockServlet</servlet-name>
+    <url-pattern>/isSelfStockServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UsernameServlet</servlet-name>
+    <url-pattern>/usernameServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

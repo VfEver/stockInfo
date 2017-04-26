@@ -1,0 +1,65 @@
+<div class="container" ng-controller="StockController">
+	<div class="header">
+        <div class="header-title">
+            <p class="header-name">{{stock.name}}</p>
+            <p>({{stock.code}})</p>
+        </div>
+        <div class="header-content">
+            <div class="header-content-detail">
+                <div class="header-data-detail-now">
+                    <p class="header-data-open"><span class="up-text" id="stockPriceID">{{stock.nowPrice}}</span><i class="up-icon" id="stockIconID"></i></p>
+                    <p class="header-data-open-desc header-data-open-desc1"><span class="up-text" id="stockPriceID1">{{diff}}</span></p>
+                    <p class="header-data-open-desc"><span class="up-text" id="stockPriceID2">{{diffPercent}}%</span></p>
+                </div>
+                <div class="header-data-detail">
+                    <span>今开：<span class="up-text">{{stock.openPrice}}</span></span>
+                    <span>最高：<span class="up-text">{{stock.todayMax}}</span></span>
+                    <span>成交量：<span class="high-light-text">{{stock.tradeNum}}</span></span>
+                    <span>振幅：<span>{{stock.swing}}</span></span>
+                    <span class="clear-both">昨收：<span class="up-text">{{stock.closePrice}}</span></span>
+                    <span>最低：<span class="up-text">{{stock.todayMin}}</span></span>
+                    <span>成交额：<span class="high-light-text">{{tradeAmount}}亿</span></span>
+                    <span>换手：<span>{{stock.turnover}}</span></span>
+                </div>
+                <div class="header-btn text-center">
+                    <a ng-click="addToSelfStock()" id="selfStockID">加入自选股</a>
+                </div>
+            </div>
+            <div class="header-content-info">
+                <div class="header-time">{{stock.date}} {{stock.time}}</div>
+                <div class="header-info-list">
+                    <span>流通数值：<span>{{stock.circulation_value}}亿</span></span>
+                    <span>市盈率：<span>{{stock.pe}}</span></span>
+                    <span>52周最高：<span class="up-text">{{stock.max52}}</span></span>
+                    <span>52周最低：<span class="low-text">{{stock.min52}}</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-slice">
+    </div>
+    
+    <div>
+    	<ul>
+    		<li ng-repeat="stock in stockList" ng-click="checkStockInfo(stock.code, stock.market)">
+    		<div class="stock-div">
+    			<div class="stock-name">
+    				<p style="padding-top:10px;">{{stock.name}}</p>
+    				<p>({{stock.code}})</p>
+    			</div>
+	   			<div class="stock-info">
+	   				<div class="stock-info-data">
+	   					<span>流通股本(万股):</span><span>{{stock.currcapital}}</span>
+	   					<span>四季度净利润(亿元):</span><span class="up-text">{{stock.profit_four}}</span>
+	   					<span>上市日期:</span><span>{{stock.listing_date}}</span>
+	   					<span>总股本(万股):</span><span>{{stock.totalcapital}}</span>
+	   					<span>每股净资产(元):</span><span class="up-text">{{stock.mgjzc}}</span>
+	   				</div>
+	   			</div>
+   			</div>
+    		</li>
+    		
+    	</ul>
+    </div>
+</div>
